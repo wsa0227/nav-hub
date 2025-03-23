@@ -33,7 +33,7 @@ app.post('/api/add-site', (req, res) => {
       const jsContent = data.replace(/export const navigationData = /, '').replace(/;(\s*)$/, '');
       const navigationData = eval(`(${jsContent})`);
 
-      // 查找目标分类和站点组
+      // 查找目标分类和 1站点组 
       const category = navigationData.categories.find(cat => cat.id === categoryId);
       if (!category) {
         return res.status(404).json({ success: false, message: '未找到指定分类' });
